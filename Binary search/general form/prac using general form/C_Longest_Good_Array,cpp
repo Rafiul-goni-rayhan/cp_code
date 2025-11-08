@@ -1,0 +1,25 @@
+//https://codeforces.com/contest/2008/problem/C
+#include<bits/stdc++.h>
+using namespace std;
+int check(int Mid, int left, int point){
+    long long dgt = (long long)left + (1LL * Mid * (Mid + 1)) / 2;
+    if(point<dgt) return 1;
+    else return 0;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int L,R;
+        cin>>L>>R;
+
+        int l=0,r=1e9;//l=0 hobe karon amra dhap ber korterchi .jodi real value ber kortam tahole l tascase er left hoto 
+
+        while(l<r){
+            int mid=(l+r)/2;
+            if(check(mid,L,R)==0) l=mid+1;
+            else r=mid;
+    }
+    cout<<r<<endl;
+    }
+}
